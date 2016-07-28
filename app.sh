@@ -21,6 +21,7 @@ popd
 _build_certificates() {
 # update CA certificates on a Debian/Ubuntu machine:
 #sudo update-ca-certificates
+mkdir -p "${DEST}/etc/ssl/certs/"
 cp -vf /etc/ssl/certs/ca-certificates.crt "${DEST}/etc/ssl/certs/"
 ln -vfs certs/ca-certificates.crt "${DEST}/etc/ssl/cert.pem"
 }
