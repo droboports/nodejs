@@ -10,7 +10,7 @@ _download_tgz "${FILE}" "${URL}" "${FOLDER}"
 pushd "target/${FOLDER}"
 PKG_CONFIG_PATH="${DEST}/lib/pkgconfig" \
   ./configure --dest-cpu=arm --dest-os=linux --prefix="${DEST}" \
-  --with-arm-float-abi=softfp \
+  --with-arm-float-abi=softfp
 make
 make install
 mv -vf "${DEST}/share/man" "${DEST}/"
