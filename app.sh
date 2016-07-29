@@ -10,7 +10,7 @@ _download_tgz "${FILE}" "${URL}" "${FOLDER}"
 pushd "target/${FOLDER}"
 PKG_CONFIG_PATH="${DEST}/lib/pkgconfig" \
   ./configure --dest-cpu=arm --dest-os=linux --prefix="${DEST}" \
-  --with-arm-float-abi=softfp \
+  --with-arm-float-abi=softfp
 make
 make install
 mv -vf "${DEST}/share/man" "${DEST}/"
@@ -21,6 +21,7 @@ popd
 _build_certificates() {
 # update CA certificates on a Debian/Ubuntu machine:
 #sudo update-ca-certificates
+mkdir -p "${DEST}/etc/ssl/certs/"
 cp -vf /etc/ssl/certs/ca-certificates.crt "${DEST}/etc/ssl/certs/"
 ln -vfs certs/ca-certificates.crt "${DEST}/etc/ssl/cert.pem"
 }
